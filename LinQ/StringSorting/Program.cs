@@ -10,18 +10,25 @@ class Program
 
         for(int i=0;i<city.Length;i++)
         {
-            string temp;
-            if(city[i].Length<city[i+1].Length)
+            for(int j =0; j<city.Length;j++)
             {
-                temp = city[i];
-                city[i] = city[i+1];
-                city[i+1] = temp;
+                string temp;
+                string first = city[i];
+                string second = city[j];
+
+                if((city[i].Length < city[j].Length) || (((city[i].Length) == (city[j].Length)) && (first[0]<second[0])))
+                {
+                    temp = city[i];
+                    city[i] = city[j];
+                    city[j] = temp;
+                }
             }
+            
         }
 
         for(int i=0; i<city.Length;i++)
         {
-            
+            Console.WriteLine(city[i]);
         }
     }
 }
